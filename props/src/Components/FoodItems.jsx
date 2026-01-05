@@ -1,7 +1,5 @@
 import Item from "./Item";
-function FoodItems(){
-
-    let FoodItems = ["Dal","Green Vegitable","Roti","Salad","Milk","Ghee"];
+function FoodItems({FoodItems}){
 
 return  <ul class="list-group">
     {

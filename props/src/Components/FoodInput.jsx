@@ -1,13 +1,13 @@
 import styles from './FoodInput.module.css'
 
-function FoodInput({handleOnChange}) {
+function FoodInput({handleKeyDown}) {
 
     return <input
         type="text"
         className={styles.FoodInput}
         placeholder='Enter Food item Here'
-        onChange={
-            handleOnChange
+        onKeyDown={
+            handleKeyDown
         }
     />
 }
