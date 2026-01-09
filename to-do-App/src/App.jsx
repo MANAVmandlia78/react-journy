@@ -11,7 +11,6 @@ function App() {
   const [todoitems, SetTodoItems] = useState([]);
 
   const handleNewItem = (itemName, itemDueDate) => {
-    console.log(`New Item Added ${itemName} and Item due date: ${itemDueDate}`);
     const newTodoItems = [...todoitems,
       { name: itemName, dueDate: itemDueDate },
     ];

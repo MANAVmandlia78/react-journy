@@ -1,39 +1,32 @@
-import { useState } from "react";
+import { useRef } from "react";
+import { MdAddToPhotos } from "react-icons/md";
 
 function Addtodo({onNewItem}){
+  const todoNameElement = useRef();
+  const dueDateElement = useRef();
 
-  const [todoName,SetTodoName] = useState("");
-  const [dueDate,SetDueDate] = useState("");
-
-  const handleNameChange = (e) => {
-   SetTodoName(e.target.value);
-  };
-
-  const handleDateChange = (e) => {
-   SetDueDate(e.target.value);
-  };
-
-  const handleAddButtonClicked = () => {
+  const handleAddButtonClicked = (e) => {
+    e.preventDefault();
+    const todoName = todoNameElement.current.value;
+    const dueDate = dueDateElement.current.value;
+    todoNameElement.current.value = "";
+    dueDateElement.current.value = "";
   onNewItem(todoName,dueDate);
-  SetTodoName("");
-  SetDueDate("");
   };
 
-    return <div class="row kg-row">
+    return <form class="row kg-row" onSubmit={handleAddButtonClicked}>
             <div class="col-6">
-              <input type="text" value={todoName} placeholder="Enter Todo Here" onChange={handleNameChange}/>
+              <input type="text" ref={todoNameElement}  placeholder="Enter Todo Here" />
             </div>
             <div class="col-4">
-              <input type="date" value={dueDate} onChange={handleDateChange}/>
+              <input type="date" ref={dueDateElement} />
             </div>
             <div class="col-2">
-              <button type="button" class="btn btn-success" onClick={
-                () => handleAddButtonClicked()
-              }>
-                Add
+              <button type="submit" class="btn btn-success">
+                <MdAddToPhotos/>
               </button>
             </div>
-          </div>
+          </form>
 }
 
 export default Addtodo;
