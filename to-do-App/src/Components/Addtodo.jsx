@@ -1,7 +1,10 @@
 import { useRef } from "react";
 import { MdAddToPhotos } from "react-icons/md";
+import { TodoItemsContext } from "../Store/todo-items-store";
+import { useContext } from "react";
 
-function Addtodo({onNewItem}){
+function Addtodo(){
+   const {addNewItem} = useContext(TodoItemsContext);
   const todoNameElement = useRef();
   const dueDateElement = useRef();
 
@@ -11,18 +14,18 @@ function Addtodo({onNewItem}){
     const dueDate = dueDateElement.current.value;
     todoNameElement.current.value = "";
     dueDateElement.current.value = "";
-  onNewItem(todoName,dueDate);
+  addNewItem(todoName,dueDate);
   };
 
-    return <form class="row kg-row" onSubmit={handleAddButtonClicked}>
-            <div class="col-6">
+    return <form className="row kg-row" onSubmit={handleAddButtonClicked}>
+            <div className="col-6">
               <input type="text" ref={todoNameElement}  placeholder="Enter Todo Here" />
             </div>
-            <div class="col-4">
+            <div className="col-4">
               <input type="date" ref={dueDateElement} />
             </div>
-            <div class="col-2">
-              <button type="submit" class="btn btn-success">
+            <div className="col-2">
+              <button type="submit" className="btn btn-success">
                 <MdAddToPhotos/>
               </button>
             </div>
