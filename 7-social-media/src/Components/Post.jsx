@@ -17,7 +17,7 @@ const Post = ({post}) => {
     <p className="card-text">{post.body}</p>
     {post.tags.map(tag => <span key={tag} className="badge text-bg-primary m-1">{tag}</span>)}
     <div className="alert alert-success reactions" role="alert">
-  This Post Has Been reacted by {post.reactions} people.
+  👍 Likes: {post.reactions.likes} | 👎 Dislikes: {post.reactions.dislikes}
 </div>
   </div>
 </div>
