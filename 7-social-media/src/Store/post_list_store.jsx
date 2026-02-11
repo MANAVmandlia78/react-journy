@@ -15,9 +15,15 @@ const postListReducer = (currPostList, action) => {
     );
   }else if(action.type === "ADD_POST"){
     newPostList = [action.payload,...currPostList]
-  }else if(action.type === "ADD_INITIAL_POST"){
+  }else if (action.type === "ADD_INITIAL_POST") {
+  // merge API posts only if list is empty
+  if (currPostList.length === 0) {
     newPostList = action.payload.posts;
+  } else {
+    newPostList = currPostList;
   }
+}
+
   return newPostList;
 };
 

@@ -1,9 +1,11 @@
 import React, { useContext, useRef } from "react";
 import { PostList } from "../Store/post_list_store";
+import { useNavigate } from "react-router-dom";
 
 const Createpost = () => {
 
   const {addPost} = useContext(PostList);
+  const navigate = useNavigate();
 
 const userIdElement = useRef();
 const postTitleElement = useRef();

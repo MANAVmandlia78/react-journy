@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Sidebar = ({SelectedTab,SetSelectedTab}) => {
+const Sidebar = () => {
 
     const handleOnClick = (TabName) => {
         SetSelectedTab(TabName)
@@ -24,40 +25,40 @@ const Sidebar = ({SelectedTab,SetSelectedTab}) => {
         <hr />
 
         <ul className="nav nav-pills flex-column mb-auto">
-          <li className="nav-item" onClick={() => {SetSelectedTab("Home")}}>
-            <a href="#" className={`nav-link text-white ${SelectedTab === 'Home' && 'active'}`} aria-current="page">
+          <li className="nav-item">
+            <Link to="/" className={`nav-link text-white`} aria-current="page">
               <svg className="bi pe-none me-2" width="16" height="16" aria-hidden="true">
                 <use xlinkHref="#home"></use>
               </svg>
               Home
-            </a>
+            </Link>
           </li>
 
-          <li className="nav-item" onClick={() => {SetSelectedTab("CreatePost")}}>
-            <a href="#" className={`nav-link text-white ${SelectedTab === 'CreatePost' && 'active'}`}>
+          <li className="nav-item">
+            <Link to="/create-post" className={`nav-link text-white`}>
               <svg className="bi pe-none me-2" width="16" height="16" aria-hidden="true">
                 <use xlinkHref="#speedometer2"></use>
               </svg>
               CreatePost
-            </a>
+            </Link>
           </li>
 
-          <li className="nav-item" onClick={() => {SetSelectedTab("Reels")}}>
-            <a href="#" className={`nav-link text-white ${SelectedTab === 'Reels' && 'active'}`}>
+          <li className="nav-item">
+            <Link to="#" className={`nav-link text-white`}>
               <svg className="bi pe-none me-2" width="16" height="16" aria-hidden="true">
                 <use xlinkHref="#table"></use>
               </svg>
               Reels
-            </a>
+            </Link>
           </li>
 
-          <li className="nav-item" onClick={() => {SetSelectedTab("Products")}}>
-            <a href="#" className={`nav-link text-white ${SelectedTab === 'Products' && 'active'}`}>
+          <li className="nav-item">
+            <Link to="#" className={`nav-link text-white`}>
               <svg className="bi pe-none me-2" width="16" height="16" aria-hidden="true">
                 <use xlinkHref="#grid"></use>
               </svg>
               Products
-            </a>
+            </Link>
           </li>
 
         </ul>
